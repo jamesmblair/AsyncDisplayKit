@@ -312,7 +312,7 @@ typedef CALayer *(^ASDisplayNodeLayerBlock)();
 - (void)recursivelySetDisplaySuspended:(BOOL)flag;
 
 /**
- * @abstract Calls -reclaimMemory on the receiver and its subnode hierarchy.
+ * @abstract Calls -clearRendering on the receiver and its subnode hierarchy.
  *
  * @discussion Clears backing stores and other memory-intensive intermediates.
  * If the node is removed from a visible hierarchy and then re-added, it will automatically trigger a new asynchronous display,
@@ -322,7 +322,18 @@ typedef CALayer *(^ASDisplayNodeLayerBlock)();
  * @see displaySuspended and setNeedsDisplay
  */
 
-- (void)recursivelyReclaimMemory;
+- (void)recursivelyClearRendering;
+
+/**
+ * @abstract Calls -clearRemoteData on the receiver and its subnode hierarchy.
+ *
+ * @discussion Clears any memory-intensive fetched content.
+ * This method is used to notify the node that it should purge any content that is both expensive to fetch and to
+ * retain in memory.
+ *
+ * @see fetchRemoteData
+ */
+- (void)recursivelyClearRemoteData;
 
 /**
  * @abstract Toggle displaying a placeholder over the node that covers content until the node and all subnodes are
@@ -536,4 +547,12 @@ typedef CALayer *(^ASDisplayNodeLayerBlock)();
  * Convenience method, equivalent to [layer addSublayer:node.layer].
  */
 - (void)addSubnode:(ASDisplayNode *)node;
+@end
+
+
+@interface ASDisplayNode (Deprecated)
+
+- (void)reclaimMemory ASDISPLAYNODE_DEPRECATED;
+- (void)recursivelyReclaimMemory ASDISPLAYNODE_DEPRECATED;
+
 @end
