@@ -176,7 +176,7 @@
  * If not implemented, the tableView assumes that it should notify its asyncDelegate when batch fetching
  * should occur.
  */
-- (BOOL)shouldBatchFetchForTableView:(UITableView *)tableView;
+- (BOOL)shouldBatchFetchForTableView:(ASTableView *)tableView;
 
 /**
  * Receive a message that the tableView is near the end of its data set and more data should be fetched if necessary.
@@ -190,6 +190,6 @@
  * ASTableView currently only supports batch events for tail loads. If you require a head load, consider implementing a
  * UIRefreshControl.
  */
-- (void)tableView:(UITableView *)tableView beginBatchFetchingWithContext:(ASBatchContext *)context;
+- (void)tableView:(ASTableView *)tableView beginBatchFetchingWithContext:(ASBatchContext *)context;
 
 @end
