@@ -10,6 +10,6 @@
 
 #import <AsyncDisplayKit/ASRangeDelegate.h>
 
-@interface ASRenderRangeDelegate : NSObject
+@interface ASRangeHandlerPreload : NSObject <ASRangeDelegate>
 
 @end

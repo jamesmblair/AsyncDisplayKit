@@ -39,7 +39,7 @@ static const CGFloat kASFlowLayoutControllerRefreshingThreshold = 0.3;
 
   _layoutDirection = layoutDirection;
 
-  _tuningParameterMap = std::vector<ASRangeTuningParameters>(2);
+  _tuningParameterMap = std::vector<ASRangeTuningParameters>(ASLayoutRangeTypeCount);
   _tuningParameterMap[ASLayoutRangeTypePreload] = {
     .leadingBufferScreenfuls = 2,
     .trailingBufferScreenfuls = 1

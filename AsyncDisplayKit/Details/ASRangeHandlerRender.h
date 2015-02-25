@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <AsyncDisplayKit/ASRangeDelegate.h>
+#import <AsyncDisplayKit/ASRangeHandler.h>
 
-@interface ASPreloadRangeDelegate : NSObject <ASRangeDelegate>
+@interface ASRangeHandlerRender : NSObject <ASRangeHandler>
 
 @end
